@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Calculadora para fiestas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap" rel="stylesheet">
+
+
+<script>
+
+    function calcularGastoPorPersona(){
+            
+            var precioTotal = document.getElementById('dinero').value;
+            
+            var numPersonas = document.getElementById('personas').value;
+
+            var producto = document.getElementById('producto').value;
+
+            if(precioTotal < 0 || numPersonas < 0 ){
+
+                alert("Introduce datos con sentido");
+
+            } else {
+
+            var resultado = (precioTotal / numPersonas).toFixed(2);
+
+            var nuevoLi = document.createElement("li");
+
+            var texto = document.createTextNode( producto + " sale a " + resultado + " $ por persona");
+           
+            nuevoLi.appendChild(texto);
+            
+            document.getElementById("lista").appendChild(nuevoLi);
+
+            }
+        }   
+
+    </script>
+</head>
+<body>
+    
+    <header>
+        <h1>¡¡Calculadora para fiestas!!</h1>
+    </header>
+
+    <div>
+        
+        <input type="text" id="producto" placeholder="Producto">
+
+        <input type="number" id="cantidad" value="1" placeholder="Cantidad">
+
+        <input type="number" id="dinero" placeholder="¿Total?">
+        
+        <input type="number" id="personas" placeholder="¿Cuantxs sois?">
+
+        <input type="button" id="boton" value="CUANTO VA A COSTAR" onclick="calcularGastoPorPersona()">
+    
+    </div>
+
+    <div>
+
+        <ul id="lista">
+
+            <h1>Que habeis comprado!!</h1>
+
+
+
+    
+
+
+
+        </ul>
+
+    </div>
+</body>
+</html>
